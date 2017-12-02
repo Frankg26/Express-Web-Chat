@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Chat</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+    <script type="text/javascript" src="/scripts/jQuery.js"></script>
+    <script type="text/javascript" src="/scripts/bootstrap.js"></script>
+</head>
+<body>
+
+    <!-- Nav Bar -->
+    <nav class="navbar navbar-default" id="nav-bar">
+        <!-- Contents of navbar wrapped in a container to center them -->
+        <div class="container">
+            <div class="navbar-header"> 
+                <!-- This button is the Hamburger Button, that shows up when screen hits mobile size -->
+                <!-- When Hamburger is clicked, content shown is based on the data-target attribute and its selector (this case an id) -->
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-bar-content" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <!-- Each span with class "icon-bar" makes one of the three bars in the hamburger button -->
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>  
+                <a href="/" class="navbar-brand">Web Chat</a>
+            </div>
+            <!-- The classes:  "collapse" and "navbar-collapse" hide the logout anchor tag, when screen hits mobile size-->
+            <div class="collapse navbar-collapse" id="nav-bar-content">
+                <div class="nav navbar-nav navbar-right">
+                    <li><a href="/logout">Logout</a></li>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Container for Flash messages -->
+    <div class="container">
+        <!-- if there is a error message, display a red alert -->
+        <% if(error && error.length > 0){ %>
+            <!-- div for error message -->
+            <div class="alert alert-danger" role="alert">
+                <%= error %> 
+            </div>
+        <% } %>
+        <!-- if there is a success message, display a green alert -->
+        <% if(success && success.length > 0){ %>
+            <!-- div for success message -->
+            <div class="alert alert-success" role="alert">
+                <%= success %> 
+            </div>
+        <% } %>
+    </div>
+
+    <div class="container" id="container">
+        <div class="row" id="top-div">
+            <!-- The users username -->
+            <h3 class="text-primary">Logged in as: <i><b><span id="username"><%= loggedInUser.username %></span></b></i></h1>
+        </div>
+
+        <div class="row" id="middle-div">
+            <div class="form-group" id="chat-and-users">
+                <div>
+                    <div class="col-xs-9 bg-info" id="chat-column">
+                        <!-- Chat Column -->
+                        <ul id="messages">
+                            <!-- Messages go here -->
+                        </ul>  
+                    </div>
+                    <div class="col-xs-3 bg-success" id="users-column">
+                        <!-- Users Column -->
+                        <h4><b>Online Users:</b></h4> 
+                        <ul id="online-users">
+                            <!-- Online users go here -->
+                        </ul>  
+                    </div> 
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="bottom-div">
+            <form action="" id="input-button-form">
+                <div class="form-group">
+                    <input type="text" id="message-input" autocomplete="off" class="form-control" placeholder="Type a message...">
+                </div>   
+                <button type="submit" id="button-send" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+
+    </div>
+
+    <script type="text/javascript" src="/scripts/socket-io.js"></script>
+    <script type="text/javascript" src="/scripts/frontend.js"></script>
+        
+</body>
+</html>

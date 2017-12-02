@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Chat</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/signup-login.css">
+    <script type="text/javascript" src="/scripts/jQuery.js"></script>
+    <script type="text/javascript" src="/scripts/bootstrap.js"></script>
+</head>
+
+<body>
+
+    <!-- Nav Bar -->
+    <nav class="navbar navbar-default" id="nav-bar">
+        <!-- Contents of navbar wrapped in a container to center them -->
+        <div class="container">
+            <div class="navbar-header"> 
+                <!-- This button is the Hamburger Button, that shows up when screen hits mobile size -->
+                <!-- When Hamburger is clicked, content shown is based on the data-target attribute and its selector (this case an id) -->
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-bar-content" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <!-- Each span with class "icon-bar" makes one of the three bars in the hamburger button -->
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>  
+                <a href="/" class="navbar-brand">Web Chat</a>
+            </div>
+            <!-- The classes:  "collapse" and "navbar-collapse" hide the logout anchor tag, when screen hits mobile size-->
+            <div class="collapse navbar-collapse" id="nav-bar-content">
+                <div class="nav navbar-nav navbar-right">
+                    <li><a href="/register">Sign Up</a></li>
+                </div>
+                <div class="nav navbar-nav navbar-right">
+                    <li><a href="/login">Login</a></li>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Container for Flash messages -->
+    <div class="container">
+        <!-- if there is a error message, display a red alert -->
+        <% if(error && error.length > 0){ %>
+            <!-- div for error message -->
+            <div class="alert alert-danger" role="alert">
+                <%= error %> 
+            </div>
+        <% } %>
+        <!-- if there is a success message, display a green alert -->
+        <% if(success && success.length > 0){ %>
+            <!-- div for success message -->
+            <div class="alert alert-success" role="alert">
+                <%= success %> 
+            </div>
+        <% } %>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <h1 id="h1-header">Web Chat Project</h1>
+            <div id="form-content">
+                <form action="/chat" method="GET">
+                    <div class="form-group">
+                        <button class="btn btn-lg btn-primary btn-block">View Web Chat</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+<!-- <h1>This is the home page</h1>
+
+<li><a href="/register">Sign Up!</a></li>
+<li><a href="/login">Login!</a></li>
+<li><a href="/logout">Logout!</a></li> -->

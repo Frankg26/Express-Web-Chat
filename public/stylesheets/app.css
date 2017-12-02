@@ -1,0 +1,75 @@
+
+html, body{
+    height: 100%;
+    background-color: #E5E5E5;
+}
+
+#nav-bar {
+    margin-bottom: 0;
+}
+
+#messages{
+    list-style-type: none;
+    margin: 0; 
+    padding: 0;  
+}
+
+#messages li {
+    padding: 5px 10px;
+    /* Stretch <li> background to fill width of <ul> */
+    width: calc(100% + 30px);
+    margin-left: -15px;
+}
+
+#messages li:nth-child(even) {
+    background: #f9f9f9
+}
+
+#online-users {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#online-users li:nth-child(odd) {
+    color: #373737;   
+}
+
+#online-users li:nth-child(even) {
+    color: #777777;
+}
+
+#container{
+    height: 100%;
+}
+
+#middle-div{
+    border-radius: 3px;
+    border: 1px solid #202020;
+}
+
+#chat-column{
+    /* 65vh refers to 65% of the height of the initial containing block. Note: there is also vw, for width */
+    height: 65vh;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-right: 1px solid #202020;
+    /* Keep messages from overflowing out of rectangle */
+    word-wrap: break-word;
+    /* Contain messages as a scrollable list inside the rectangle */
+    overflow-y: auto;
+}
+
+#users-column{
+    height: 65vh;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-left: 1px solid #202020;
+    /* Keep usernames from overflowing out of rectangle */
+    word-wrap: break-word;
+    /* Contain usernames as a scrollable list inside the rectangle */
+    overflow-y: auto;
+} 
+
+#bottom-div {
+    margin-top: 15px;
+}

@@ -1,0 +1,10 @@
+
+#h1-header {
+    text-align: center;
+}
+
+#form-content{ 
+    /* margin: vertical horizontal */
+    margin: 25px auto;
+    width: 30%; 
+}
