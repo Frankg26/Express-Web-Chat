@@ -242,23 +242,23 @@ io.on("connection", function(socket){
             //Generate the message
             var chatMessage = timeStamp + " " + loggedInUser + ": " + data;
 
-            //For Version 2 
+            // //For Version 2 
 
-            //Create a Message object that will be save in the database
-            var aChatMessage = new Message({
-                message: chatMessage
-            });
+            // //Create a Message object that will be save in the database
+            // var aChatMessage = new Message({
+            //     message: chatMessage
+            // });
 
-            //Save Message object to database
-            aChatMessage.save(function(err, msg){
-                if(err){
-                    console.log(err);
-                }
-                else{
-                    console.log("Saved a message to database:")
-                    console.log(msg);
-                }
-            });
+            // //Save Message object to database
+            // aChatMessage.save(function(err, msg){
+            //     if(err){
+            //         console.log(err);
+            //     }
+            //     else{
+            //         console.log("Saved a message to database:")
+            //         console.log(msg);
+            //     }
+            // });
 
             //Emit to Front End
             io.emit('chat', {msg:chatMessage, user:loggedInUser});
