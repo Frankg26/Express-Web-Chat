@@ -3,7 +3,7 @@
  *  This is an Express Web Chat that uses modern web development technologies and follows the REST pattern
  * 
  *  @author: Francisco Garcia
- *  @version: 1.0
+ *  @version: 1.2
  * 
  */
  
@@ -244,21 +244,21 @@ io.on("connection", function(socket){
 
             //For Version 2 
 
-            // //Create a Message object that will be save in the database
-            // var aChatMessage = new Message({
-            //     message: chatMessage
-            // });
+            //Create a Message object that will be save in the database
+            var aChatMessage = new Message({
+                message: chatMessage
+            });
 
-            // //Save Message object to database
-            // aChatMessage.save(function(err, msg){
-            //     if(err){
-            //         console.log(err);
-            //     }
-            //     else{
-            //         console.log("Saved a message to database:")
-            //         console.log(msg);
-            //     }
-            // });
+            //Save Message object to database
+            aChatMessage.save(function(err, msg){
+                if(err){
+                    console.log(err);
+                }
+                else{
+                    console.log("Saved a message to database:")
+                    console.log(msg);
+                }
+            });
 
             //Emit to Front End
             io.emit('chat', {msg:chatMessage, user:loggedInUser});

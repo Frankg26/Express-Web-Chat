@@ -6,7 +6,7 @@ mongoose.Promise = global.Promise;
 
 //Message Schema
 var MessageSchema = new mongoose.Schema({
-    message: { type: String, unique: true, sparse: true }
+    message: { type : String, index: { unique: true }}
 });
 
 //Add methods from "passport-local-mongoose" to MessageSchema
